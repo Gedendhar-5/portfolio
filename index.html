@@ -248,6 +248,20 @@ section{position:relative;z-index:1;padding:86px 4%}
   padding:34px 38px;position:relative;overflow:hidden;
   transition:border-color 0.25s,box-shadow 0.25s;
 }
+.exp-card::after{
+  content:'{ }';position:absolute;right:20px;bottom:16px;
+  font-family:'DM Mono',monospace;font-size:5rem;font-weight:700;
+  color:rgba(91,164,245,0.04);line-height:1;pointer-events:none;
+  letter-spacing:-4px;
+}
+.exp-card .exp-bg{
+  position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0;
+}
+.exp-card .exp-bg span{
+  position:absolute;font-family:'DM Mono',monospace;
+  color:rgba(91,164,245,0.045);font-size:0.65rem;white-space:nowrap;
+}
+.exp-card>*:not(.exp-bg){position:relative;z-index:1;}
 .exp-card:hover{border-color:var(--accent2);box-shadow:0 0 36px rgba(45,125,210,0.1)}
 .exp-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--accent2),var(--teal))}
 .exp-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;margin-bottom:5px}
@@ -589,6 +603,16 @@ body.light{--bg:#f0f4ff;--bg2:#e4eaf5;--bg3:#d8e2f0;--card:#ffffff;--border:#c0c
     <h2 class="sec-title">Professional Experience</h2>
     <p class="sec-sub">Building production AI systems that made measurable impact.</p>
     <div class="exp-card fi">
+    <div class="exp-bg">
+    <span style="top:8%;left:2%">python nlp_pipeline.py --optimize --batch 512</span>
+    <span style="top:18%;left:60%">aws s3 sync ./output s3://prod-bucket/</span>
+    <span style="top:30%;left:5%">model = HuggingFaceTransformer('bert-base')</span>
+    <span style="top:42%;left:50%">git commit -m "feat: reduce latency by 30%"</span>
+    <span style="top:55%;left:8%">docker build -t redact-pipeline:v2 .</span>
+    <span style="top:67%;left:55%">jira.update_sprint(status='ahead_of_schedule')</span>
+    <span style="top:78%;left:3%">lambda_client.invoke(FunctionName='doc-processor')</span>
+    <span style="top:88%;left:45%">accuracy: 94.3% | throughput: +25% | eta: done</span>
+  </div>
       <div class="exp-head">
         <div>
           <div class="exp-role">Software Engineer I</div>
