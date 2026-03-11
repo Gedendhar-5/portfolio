@@ -23,7 +23,20 @@ body{
 
 /* CANVAS */
 #bg-canvas{position:fixed;inset:0;z-index:0;opacity:0.3;pointer-events:none}
-
+/* CUSTOM CURSOR */
+* { cursor: none; }
+.cursor-dot {
+  position: fixed; width: 8px; height: 8px; border-radius: 50%;
+  background: #fff; pointer-events: none; z-index: 9999;
+  transform: translate(-50%,-50%); transition: transform 0.1s;
+}
+.cursor-ring {
+  position: fixed; width: 35px; height: 35px; border-radius: 50%;
+  border: 1.5px solid rgba(91,164,245,0.7); pointer-events: none; z-index: 9998;
+  transform: translate(-50%,-50%); transition: transform 0.12s ease, width 0.2s, height 0.2s;
+}
+body:hover .cursor-ring { width: 35px; height: 35px; }
+a:hover ~ .cursor-ring, button:hover ~ .cursor-ring { width: 55px; height: 55px; }
 /* GRID */
 body::before{
   content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
@@ -443,7 +456,8 @@ footer a:hover{color:var(--accent2)}
 </style>
 </head>
 <body>
-
+<div class="cursor-dot" id="cd"></div>
+<div class="cursor-ring" id="cr"></div>
 <canvas id="bg-canvas"></canvas>
 
 <!-- NAV -->
@@ -846,6 +860,16 @@ window.addEventListener('scroll',()=>{
   secs.forEach(s=>{if(window.scrollY>=s.offsetTop-70)cur=s.id;});
   nls.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
 },{passive:true});
+  // Custom cursor
+const cd=document.getElementById('cd'),cr=document.getElementById('cr');
+document.addEventListener('mousemove',e=>{
+  cd.style.left=e.clientX+'px'; cd.style.top=e.clientY+'px';
+  cr.style.left=e.clientX+'px'; cr.style.top=e.clientY+'px';
+});
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cr.style.width='55px';cr.style.height='55px';cr.style.borderColor='rgba(0,201,167,0.8)';});
+  el.addEventListener('mouseleave',()=>{cr.style.width='35px';cr.style.height='35px';cr.style.borderColor='rgba(91,164,245,0.7)';});
+});
 </script>
 </body>
 </html>
