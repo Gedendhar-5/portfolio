@@ -898,7 +898,8 @@ type();
 // Dark/Light toggle
 const tb=document.querySelector('.theme-btn');
 if(tb)tb.addEventListener('click',()=>{
-  tb.textContent=document.body.classList.contains('light')?'🌙':'☀️';
+  document.body.classList.toggle('light');
+  tb.textContent=document.body.classList.contains('light')?'☀️':'🌙';
 });
 
 // Skill progress bars animate on scroll
