@@ -403,7 +403,14 @@ section{position:relative;z-index:1;padding:86px 4%}
 }
 .mbtn:hover{background:#7bbcff;box-shadow:0 0 28px rgba(91,164,245,0.45);transform:translateY(-1px)}
 .mnote{font-size:0.68rem;color:var(--dim);font-style:italic}
-
+/* BLOG */
+#blog{background:var(--bg)}
+ .blog-card{display:flex;gap:20px;align-items:center;background:var(--card);border:1px solid var(--border);padding:24px 28px;text-decoration:none;max-width:600px;transition:border-color 0.25s,transform 0.25s;}
+ .blog-card:hover{border-color:var(--accent2);transform:translateY(-3px);}
+ .blog-icon{font-size:2rem;flex-shrink:0;}
+ .blog-src{font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:6px;}
+ .blog-title{font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:8px;}
+ .blog-link{font-size:0.72rem;color:var(--accent2);font-weight:700;letter-spacing:0.08em;}
 /* FOOTER */
 footer{
   background:var(--bg);border-top:1px solid var(--border);
@@ -760,8 +767,8 @@ body.light{--bg:#f0f4ff;--bg2:#e4eaf5;--bg3:#d8e2f0;--card:#ffffff;--border:#c0c
       <div class="blog-icon">✍️</div>
       <div class="blog-body">
         <div class="blog-src">LinkedIn Article</div>
-        <div class="blog-title">Read my latest article on LinkedIn</div>
-        <div class="blog-link">Read Article →</div>
+        <div class="blog-title">The RCTEFC Framework — A 6-Layer Prompt System That Works Across All AI Models</div>
+        <div class="blog-src">LinkedIn Article · Prompt Engineering</div>
       </div>
     </a>
   </div>
@@ -829,7 +836,6 @@ body.light{--bg:#f0f4ff;--bg2:#e4eaf5;--bg3:#d8e2f0;--card:#ffffff;--border:#c0c
     </div>
   </div>
 </section>
-
 <footer>
   <span>© 2026 Gedendhar Sivakumar. All rights reserved.</span>
   <span>
