@@ -452,7 +452,18 @@ body.light{--bg:#f0f4ff;--bg2:#e4eaf5;--bg3:#d8e2f0;--card:#ffffff;--border:#c0c
 /* SKILL PROGRESS BARS */
 .skbar-wrap{margin-top:10px;background:var(--border);height:3px;border-radius:2px;}
 .skbar{height:3px;border-radius:2px;background:linear-gradient(to right,var(--accent),var(--accent2));width:0;transition:width 1s ease;}
-
+.hamburger{
+  display:none;flex-direction:column;gap:5px;
+  background:none;border:none;cursor:pointer;padding:4px;flex-shrink:0;
+}
+.hamburger span{
+  width:22px;height:2px;background:var(--text);
+  transition:all 0.3s;display:block;
+}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+  
 /* RESPONSIVE */
 @media(max-width:1050px){
   .nav-links{gap:1rem}
@@ -462,18 +473,13 @@ body.light{--bg:#f0f4ff;--bg2:#e4eaf5;--bg3:#d8e2f0;--card:#ffffff;--border:#c0c
   .nav-links a{font-size:0.6rem;letter-spacing:0.05em}
   .nav-links{gap:0.75rem}
   .nav-avail{display:none}
-  .hero-wrap{flex-direction:column;gap:30px;text-align:center}
-  .hero-role,.hero-btns,.hero-links{justify-content:center}
-  .hero-bio{margin:0 auto 28px}
-  .about-grid{grid-template-columns:1fr}
-  .skills-grid{grid-template-columns:repeat(2,1fr)}
-  .proj-grid{grid-template-columns:1fr}
-  .certs-grid{grid-template-columns:repeat(2,1fr)}
-  .contact-grid{grid-template-columns:1fr}
-  .mrow{grid-template-columns:1fr}
-  .stat-row{grid-template-columns:repeat(2,1fr)}
-  .exp-list li{font-size:0.75rem;line-height:1.6;}
-  .exp-role{font-size:0.95rem;}
+  .nav-links{display:none;flex-direction:column;position:fixed;top:58px;left:0;right:0;
+    background:rgba(4,13,26,0.98);padding:20px 6%;gap:0;z-index:499;border-bottom:1px solid var(--border);}
+  .nav-links.open{display:flex;}
+  .nav-links a{font-size:0.95rem;padding:12px 0;border-bottom:1px solid var(--border);}
+  .nav-avail{display:none;}
+  .theme-btn{display:none;}
+  .hamburger{display:flex;}
 }
 @media(max-width:560px){
   .nav-links{gap:0.5rem}
@@ -505,6 +511,9 @@ body.light{--bg:#f0f4ff;--bg2:#e4eaf5;--bg3:#d8e2f0;--card:#ffffff;--border:#c0c
     <li><a href="#education">Education</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button class="hamburger" id="hbg" onclick="this.classList.toggle('open');document.querySelector('.nav-links').classList.toggle('open')">
+  <span></span><span></span><span></span>
+  </button>
   <div class="nav-avail"><span class="ndot"></span><span>Available for New Opportunities</span></div>
   <button class="theme-btn" title="Toggle theme">🌙</button>
 </nav>
