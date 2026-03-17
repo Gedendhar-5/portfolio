@@ -1429,7 +1429,7 @@ if(cgpaEl){
     if(running){carX+=speed;if(carX>W+60){carX=-60;lap++;speed=Math.min(speed+.4,12);burst(W*.85,H/2);trail=[];}}
     cx.fillStyle='rgba(0,0,0,.6)';cx.fillRect(6,6,185,44);cx.strokeStyle='rgba(225,6,0,.4)';cx.lineWidth=1;cx.strokeRect(6,6,185,44);
     cx.fillStyle='#e10600';cx.font='700 10px \'Space Mono\',monospace';cx.fillText(`LAP ${lap} at ${speed.toFixed(1)} units`,14,22);
-    cx.fillStyle='rgba(77,158,247,.8)';cx.font='8px \'Space Mono\',monospace';cx.fillText('P1: RUSSELL · P2: ANTONELLI',14,35);
+    cx.fillStyle='rgba(77,158,247,.8)';cx.font='8px \'Space Mono\',monospace';cx.fillText('P1: M VERSTAPPEN · P2: L HAMILTON',14,35);
     cx.fillStyle='rgba(0,229,184,.6)';cx.font='7px \'Space Mono\',monospace';cx.fillText('MAE 0.436s verified · XGBoost',14,47);
     if(!running){cx.fillStyle='rgba(225,6,0,.6)';cx.font='bold 11px \'Space Mono\',monospace';cx.textAlign='center';cx.fillText('▶  CLICK TO START',W/2,H*.55);cx.textAlign='left';}
     t++;requestAnimationFrame(frame);
